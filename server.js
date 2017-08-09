@@ -25,6 +25,35 @@ const forceSSL = function() {
 // middleware
 app.use(forceSSL());
 
+
+
+
+
+  
+
+
+// CONTACTS API ROUTES BELOW
+
+
+// CONTACTS API ROUTES BELOW
+
+// Generic error handler used by all endpoints.
+function handleError(res, reason, message, code) {
+  console.log("ERROR: " + reason);
+  res.status(code || 500).json({"error": message});
+}
+
+/*  "/api/waffle"
+ *    GET: returns waffle
+ 
+ */
+
+app.get("/api/waffle", function(req, res) {
+ res.send('test\n');
+});
+
+
+
 // Run the app by serving the static files
 // in the dist directory
 app.use(express.static(__dirname + '/dist'));
