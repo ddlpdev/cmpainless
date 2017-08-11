@@ -6,6 +6,8 @@ const path = require('path');
 
 const app = express();
 
+const api = require('./api/controllers/waffledata');
+
 // If an incoming request uses
 // a protocol other than HTTPS,
 // redirect that request to the
@@ -37,21 +39,22 @@ app.use(forceSSL());
 
 // CONTACTS API ROUTES BELOW
 
-// Generic error handler used by all endpoints.
-function handleError(res, reason, message, code) {
-  console.log("ERROR: " + reason);
-  res.status(code || 500).json({"error": message});
-}
+// // Generic error handler used by all endpoints.
+// function handleError(res, reason, message, code) {
+//   console.log("ERROR: " + reason);
+//   res.status(code || 500).json({"error": message});
+// }
 
-/*  "/api/waffle"
- *    GET: returns waffle
+// /*  "/api/waffle"
+//  *    GET: returns waffle
  
- */
+//  */
 
-app.get("/api/waffle", function(req, res) {
- res.send('test\n');
-});
+// app.get("/api/waffle", function(req, res) {
+//  res.send('test\n');
+// });
 
+app.use('/api', api);
 
 
 // Run the app by serving the static files
