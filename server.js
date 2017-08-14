@@ -29,8 +29,18 @@ const forceSSL = function() {
 // middleware
 app.use(forceSSL());
 
+//use api app
+app.use('/api', api);
+
+
+// Run the app by serving the static files
+// in the dist directory
+app.use(express.static(__dirname + '/dist'));
+
 //setup DB
 var db;
+
+
 
 // Connect to the database before starting the application server.
 mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
@@ -43,7 +53,7 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
   db = database;
   console.log("Database connection ready");
 
-  // Initialize the app.
+  //Initialize the app.
   var server = app.listen(process.env.PORT || 8080, function () {
     var port = server.address().port;
     console.log("App now running on port", port);
@@ -51,16 +61,10 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
 });
 
 
-//use api app
-app.use('/api', api);
 
-
-// Run the app by serving the static files
-// in the dist directory
-app.use(express.static(__dirname + '/dist'));
 // Start the app by listening on the default
 // Heroku port
-app.listen(process.env.PORT || 8080);
+//app.listen(process.env.PORT || 8080);
 
 // For all GET requests, send back index.html
 // so that PathLocationStrategy can be used
