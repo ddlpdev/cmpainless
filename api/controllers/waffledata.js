@@ -13,7 +13,8 @@ var WAFFLE_COLLECTION = "waffle";
 //   }
 // }
 
-
+module.exports = function(app, db) {
+ 
 /* GET api listing. */
 router.get('/waffle', function (err, database)  {
    //res.send('test is working\n');
@@ -47,5 +48,7 @@ router.post("/waffle", function(req, res) {
   //   }
   // });
 });
+};
+
 
 module.exports = router;
