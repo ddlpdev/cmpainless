@@ -2,7 +2,7 @@
 const express = require('express');
 const path = require('path');
 var mongodb = require("mongodb");
-import Promise from 'bluebird';
+//import Promise from 'bluebird';
 
 
 
