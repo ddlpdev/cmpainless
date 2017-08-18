@@ -2,9 +2,6 @@
 const express = require('express');
 const path = require('path');
 var mongodb = require("mongodb");
-//import Promise from 'bluebird';
-
-
 
 
 var ObjectID = mongodb.ObjectID;
@@ -43,20 +40,10 @@ app.use(express.static(__dirname + '/dist'));
 //setup DB
 var db;
 
-// const port = process.env.PORT || 3000;
-
-// mongodb.MongoClient.connect(process.env.MONGODB_URIurl, { promiseLibrary: Promise })
-//   .catch(err => console.error(err.stack))
-//   .then(db => {
-//     app.locals.db = db;
-//     app.listen(process.env.PORT||8080, () => {
-//       console.log(`Node.js app is listening at http://localhost:${port}`);
-//     });
-//   });
 
 
 // Connect to the database before starting the application server.
- mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
+mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
   if (err) {
     console.log(err);
     process.exit(1);
