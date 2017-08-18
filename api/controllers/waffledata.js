@@ -17,6 +17,7 @@ module.exports = function(app, db) {
  
   /* GET api listing. */
   app.get('/waffle',  (req, res) =>  {
+        res.send('hey');
 
 
     database.collection(WAFFLE_COLLECTION).find({}).toArray(function(err,docs){

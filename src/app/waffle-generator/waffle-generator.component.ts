@@ -15,13 +15,13 @@ export class WaffleGeneratorComponent implements OnInit {
   constructor(private router: Router, private http:Http) { }
 
   ngOnInit() {
-    console.log("salut");
-  		this.http.get('http://www.campaignlive.co.uk/rss/latest')
-  		.map(res => res)
-      	.subscribe(res => {
-      		//console.log( res.responseData.feed);
-        	console.log(res);
-      	});
+    // console.log("salut");
+  	// 	this.http.get('http://www.campaignlive.co.uk/rss/latest')
+  	// 	.map(res => res)
+    //   	.subscribe(res => {
+    //   		//console.log( res.responseData.feed);
+    //     	console.log(res);
+    //   	});
   }
 
   whatelseyougotClick(){
