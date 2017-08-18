@@ -27,7 +27,7 @@ router.get('/waffle', (req, res) => {
   //     res.status(200).json(docs);
   //   }
   // }
-)
+//)
 
 });
 
