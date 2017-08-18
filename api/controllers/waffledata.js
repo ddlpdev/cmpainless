@@ -17,6 +17,7 @@ var WAFFLE_COLLECTION = "waffle";
 /* GET api listing. */
 router.get('/waffle', (req, res) => {
   // res.send('test is working\n');
+  const db = req.app.locals.db;
 
 
   db.collection(WAFFLE_COLLECTION).find({}).toArray(function(err,docs){
