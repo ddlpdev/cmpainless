@@ -11,7 +11,7 @@ var ObjectID = mongodb.ObjectID;
 
 const app = express();
 
-const api = require('./api/controllers/waffledata');
+//const api = require('./api/controllers/waffledata');
 
 // If an incoming request uses
 // a protocol other than HTTPS,
@@ -34,7 +34,6 @@ app.use(forceSSL());
 
 //use api app
 //app.use('/api', api);
-require('./api/controllers')(app, {});
 
 
 
@@ -64,6 +63,8 @@ var db;
     console.log(err);
     process.exit(1);
   }
+require('./api/controllers')(app, database);
+
 
   // Save database object from the callback for reuse.
   db = database;
