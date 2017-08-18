@@ -33,7 +33,9 @@ const forceSSL = function() {
 app.use(forceSSL());
 
 //use api app
-app.use('/api', api);
+//app.use('/api', api);
+require('./api/controllers')(app, {});
+
 
 
 // Run the app by serving the static files
