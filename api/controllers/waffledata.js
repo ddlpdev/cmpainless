@@ -18,16 +18,16 @@ var WAFFLE_COLLECTION = "waffle";
 router.get('/waffle', (req, res) => {
    //res.send('test is working\n');
   const db = req.app.locals.db;
+ res.send('db');
 
-
-  db.collection(WAFFLE_COLLECTION).find({}).toArray(function(err,docs){
-    if (err) {
-      handleError(res, err.message, "failed to get any waffle this time");
-    } else {
-      res.status(200).json(docs);
-    }
-  }
-)
+  // db.collection(WAFFLE_COLLECTION).find({}).toArray(function(err,docs){
+  //   if (err) {
+  //     handleError(res, err.message, "failed to get any waffle this time");
+  //   } else {
+  //     res.status(200).json(docs);
+  //   }
+  // }
+//)
 
 });
 
