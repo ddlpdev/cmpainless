@@ -45,7 +45,7 @@ var db;
 
 // const port = process.env.PORT || 3000;
 
-mongodb.MongoClient.connect(process.env.MONGODB_URIurl, { promiseLibrary: Promise })
+mongodb.MongoClient.connect(process.env.MONGODB_URI, { promiseLibrary: Promise })
   .catch(err => console.error(err.stack))
   .then(db => {
     app.locals.db = db;
