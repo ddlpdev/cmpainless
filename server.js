@@ -11,7 +11,6 @@ var ObjectID = mongodb.ObjectID;
 
 const app = express();
 
-const api = require('./api/controllers/waffledata');
 
 // If an incoming request uses
 // a protocol other than HTTPS,
@@ -32,8 +31,6 @@ const forceSSL = function() {
 // middleware
 app.use(forceSSL());
 
-//use api app
-app.use('/api', api);
 
 
 // Run the app by serving the static files
@@ -66,6 +63,12 @@ var db;
   // Save database object from the callback for reuse.
   db = database;
   console.log("Database connection ready");
+  const api = require('./api/controllers/waffledata')(app,database);
+
+  //use api app
+    app.use('/api', api);
+
+
 
   //Initialize the app.
   var server = app.listen(process.env.PORT || 8080, function () {
