@@ -15,9 +15,10 @@ var WAFFLE_COLLECTION = "waffle";
 
 
 /* GET api listing. */
-router.get('/waffle', (req, res) => {
+router.get('/waffle', function (err, database)  {
    //res.send('test is working\n');
-  const db = req.app.locals.db;
+  const db = database;
+  
  //res.send(db);
 
   db.collection(WAFFLE_COLLECTION).find({}).toArray(function(err,docs){
