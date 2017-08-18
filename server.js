@@ -49,9 +49,9 @@ mongodb.MongoClient.connect(process.env.MONGODB_URIurl, { promiseLibrary: Promis
   .catch(err => console.error(err.stack))
   .then(db => {
     app.locals.db = db;
-    app.listen(process.env.PORT||8080, () => {
-        var port = server.address().port;
-      console.log(`Node.js app is listening at http://localhost:${port}`);
+    app.listen(process.env.PORT || 8080, () => {
+        //var port = server.address().port;
+      console.log(`Node.js app is listening`);
     });
   });
 
