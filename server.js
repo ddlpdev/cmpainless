@@ -37,9 +37,6 @@ app.use(forceSSL());
 
 
 
-// Run the app by serving the static files
-// in the dist directory
-app.use(express.static(__dirname + '/dist'));
 
 //setup DB
 var db;
@@ -64,6 +61,10 @@ var db;
     process.exit(1);
   }
 require('./api/controllers')(app, database);
+// Run the app by serving the static files
+// in the dist directory
+app.use(express.static(__dirname + '/dist'));
+
 
 
   // Save database object from the callback for reuse.
