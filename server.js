@@ -29,8 +29,7 @@ const forceSSL = function() {
 // middleware
 app.use(forceSSL());
 
-//use api app
-app.use('/api', api);
+
 
 
 // Run the app by serving the static files
@@ -52,6 +51,9 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
   // Save database object from the callback for reuse.
   db = database;
   console.log("Database connection ready");
+
+  //use api app
+    app.use('/api', api);
 
   //Initialize the app.
   var server = app.listen(process.env.PORT || 8080, function () {
