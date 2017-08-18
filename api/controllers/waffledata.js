@@ -33,18 +33,18 @@ router.get('/waffle', (req, res) => {
 
 router.post("/waffle", function(req, res) {
   var newWaffle = req.body;
+res.send(req);
+  // if (!req.body.headline) {
+  //   handleError(res, "Invalid user input", "Must provide a headline.", 400);
+  // }
 
-  if (!req.body.headline) {
-    handleError(res, "Invalid user input", "Must provide a headline.", 400);
-  }
-
-  db.collection(WAFFLE_COLLECTION).insertOne(newWaffle, function(err, doc) {
-    if (err) {
-      handleError(res, err.message, "Failed to create new waffle.");
-    } else {
-      res.status(201).json(doc.ops[0]);
-    }
-  });
+  // db.collection(WAFFLE_COLLECTION).insertOne(newWaffle, function(err, doc) {
+  //   if (err) {
+  //     handleError(res, err.message, "Failed to create new waffle.");
+  //   } else {
+  //     res.status(201).json(doc.ops[0]);
+  //   }
+  // });
 });
 
 module.exports = router;
