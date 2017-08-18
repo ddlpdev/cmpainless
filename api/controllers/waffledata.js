@@ -33,7 +33,7 @@ router.get('/waffle', (req, res) => {
 
 router.post("/waffle", function(req, res) {
   var newWaffle = req.body;
-res.send(req.body.headine);
+res.send(JSON.parse(req.body));
   // if (!req.body.headline) {
   //   handleError(res, "Invalid user input", "Must provide a headline.", 400);
   // }
