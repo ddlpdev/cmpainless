@@ -16,7 +16,7 @@ var WAFFLE_COLLECTION = "waffle";
 module.exports = function(app, db) {
  
 /* GET api listing. */
-router.get('/waffle', function (err, database)  {
+app.get('/waffle', function (err, database)  {
    //res.send('test is working\n');
   const db = database;
   
@@ -33,7 +33,7 @@ router.get('/waffle', function (err, database)  {
 
 });
 
-router.post("/waffle", function(req, res) {
+app.post("/waffle", function(req, res) {
   var newWaffle = req.body;
   res.send(newWaffle);
   // if (!req.body.headline) {
