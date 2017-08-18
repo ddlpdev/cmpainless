@@ -15,39 +15,26 @@ var WAFFLE_COLLECTION = "waffle";
 
 module.exports = function(app, db) {
  
-/* GET api listing. */
-app.get('/waffle', function (err, database)  {
-   //res.send('test is working\n');
-  const db = database;
-  
- //res.send(db);
+  /* GET api listing. */
+  app.get('/waffle',  (req, res) =>  {
 
-  db.collection(WAFFLE_COLLECTION).find({}).toArray(function(err,docs){
-    if (err) {
-      handleError(res, err.message, "failed to get any waffle this time");
-    } else {
-      res.status(200).json(docs);
+
+    database.collection(WAFFLE_COLLECTION).find({}).toArray(function(err,docs){
+      if (err) {
+        handleError(res, err.message, "failed to get any waffle this time");
+      } else {
+        res.status(200).json(docs);
+      }
     }
-  }
-)
+  )
 
-});
+  });
 
-app.post("/waffle", function(req, res) {
-  var newWaffle = req.body;
-  res.send(newWaffle);
-  // if (!req.body.headline) {
-  //   handleError(res, "Invalid user input", "Must provide a headline.", 400);
-  // }
-
-  // db.collection(WAFFLE_COLLECTION).insertOne(newWaffle, function(err, doc) {
-  //   if (err) {
-  //     handleError(res, err.message, "Failed to create new waffle.");
-  //   } else {
-  //     res.status(201).json(doc.ops[0]);
-  //   }
-  // });
-});
+  app.post("/waffle", function(req, res) {
+    var newWaffle = req.body;
+    res.send(newWaffle);
+    
+  });
 };
 
 
