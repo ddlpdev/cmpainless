@@ -3,6 +3,7 @@ import { Http} from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map'
 import { Router } from '@angular/router';
+import { WaffleService } from './../waffle.service';
 
 
 @Component({
@@ -12,7 +13,11 @@ import { Router } from '@angular/router';
 })
 export class WaffleGeneratorComponent implements OnInit {
 
-  constructor(private router: Router, private http:Http) { }
+  private waffle;
+
+  constructor(private router: Router, 
+              private http:Http,
+              private waffleservice: WaffleService) { }
 
   ngOnInit() {
     // console.log("salut");
@@ -22,6 +27,10 @@ export class WaffleGeneratorComponent implements OnInit {
     //   		//console.log( res.responseData.feed);
     //     	console.log(res);
     //   	});
+  }
+
+  getTheWaffle(){
+    this.waffle = this.waffleservice.getWaffle();
   }
 
   whatelseyougotClick(){

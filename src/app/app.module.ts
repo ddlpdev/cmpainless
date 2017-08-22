@@ -9,7 +9,8 @@ import { WaffleGeneratorComponent } from './waffle-generator/waffle-generator.co
 import { LandingComponent } from './landing/landing.component';
 import { ShareComponent } from './share/share.component';
 import { EndComponent } from './end/end.component';
-import {ShareModule} from 'ng2share/share.module'
+import {ShareModule} from 'ng2share/share.module';
+import {WaffleService} from './waffle.service';
 
 
 @NgModule({
@@ -39,7 +40,7 @@ import {ShareModule} from 'ng2share/share.module'
     }
     ])
   ],
-  providers: [],
+  providers: [WaffleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
