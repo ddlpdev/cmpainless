@@ -1,8 +1,21 @@
 // server.js
 const express = require('express');
 const path = require('path');
-var mongodb = require("mongodb");
-//import Promise from 'bluebird';
+
+var waffledata = [
+    {
+        id: 1,
+        title: "the titile",
+        subtext: "this is the subtext",
+        landingpage: "this is the landing stuff"
+    },
+    {
+        id: 2,
+        title: "the titile2",
+        subtext: "this is the subtext2",
+        landingpage: "this is the landing stuff2"
+    }
+]
 
 
 
@@ -10,8 +23,6 @@ var mongodb = require("mongodb");
 var ObjectID = mongodb.ObjectID;
 
 const app = express();
-
-//const api = require('./api/controllers/waffledata');
 
 // If an incoming request uses
 // a protocol other than HTTPS,
@@ -32,8 +43,7 @@ const forceSSL = function() {
 // middleware
 app.use(forceSSL());
 
-//use api app
-//app.use('/api', api);
+
 
 
 
@@ -41,47 +51,19 @@ app.use(forceSSL());
 // in the dist directory
 app.use(express.static(__dirname + '/dist'));
 
-//setup DB
-var db;
+/* GET api listing. */
+app.get('/waffle',  (req, res) =>  {
 
-// const port = process.env.PORT || 3000;
+    
 
-// mongodb.MongoClient.connect(process.env.MONGODB_URI, { promiseLibrary: Promise })
-//   .catch(err => console.error(err.stack))
-//   .then(db => {
-//     app.locals.db = db;
-//     app.listen(process.env.PORT || 8080, () => {
-//         //var port = server.address().port;
-//       console.log(`Node.js app is listening`);
-//     });
-//   });
+    res.status(200).json(waffledata);
 
-
-//Connect to the database before starting the application server.
- mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
-  if (err) {
-    console.log(err);
-    process.exit(1);
-  }
-require('./api/controllers')(app, database);
-
-
-  // Save database object from the callback for reuse.
-  db = database;
-  console.log("Database connection ready");
-
-  //Initialize the app.
-  var server = app.listen(process.env.PORT || 8080, function () {
-    var port = server.address().port;
-    console.log("App now running on port", port);
-  });
 });
-
 
 
 // Start the app by listening on the default
 // Heroku port
-//app.listen(process.env.PORT || 8080);
+app.listen(process.env.PORT || 8080);
 
 // For all GET requests, send back index.html
 // so that PathLocationStrategy can be used
