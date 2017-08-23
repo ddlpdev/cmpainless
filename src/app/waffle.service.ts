@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Http, Headers} from '@angular/http';
+import {Http, Headers, Response} from '@angular/http';
 
 
 @Injectable()
@@ -9,15 +9,15 @@ export class WaffleService {
 
   constructor(private http: Http) { }
 
-  getWaffle(): Promise<string>{
+  getWaffle(){
 
     var returndata;
     this.headers = new Headers();
     this.headers.append("Content-Type", 'application/json');
-    returndata =  this.http.get("/waffle", {
+    return  this.http.get("/waffle", {
           headers: this.headers
-        });
-    return returndata.text();
+        }).map((res:Response) => res.json());
+    //return returndata.text();
   }
 
 }
