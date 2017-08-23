@@ -27,10 +27,12 @@ export class WaffleGeneratorComponent implements OnInit {
     //   		//console.log( res.responseData.feed);
     //     	console.log(res);
     //   	});
+    this.getTheWaffle();
   }
 
   getTheWaffle(){
     this.waffle = this.waffleservice.getWaffle();
+    console.log(this.waffle);
   }
 
   whatelseyougotClick(){
