@@ -51,7 +51,7 @@ app.use(forceSSL());
 app.use(express.static(__dirname + '/dist'));
 
 /* GET api listing. */
-app.get('/waffle',  (req, res) =>  {
+app.get('/api/waffle',  (req, res) =>  {
 
     
 

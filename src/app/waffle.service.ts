@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Http, Headers, Response} from '@angular/http';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 
 
 @Injectable()
@@ -9,12 +11,12 @@ export class WaffleService {
 
   constructor(private http: Http) { }
 
-  getWaffle(){
+  getWaffle():Observable<any>{
 
     var returndata;
     this.headers = new Headers();
     this.headers.append("Content-Type", 'application/json');
-    return  this.http.get("/waffle", {
+    return  this.http.get("/api/waffle", {
           headers: this.headers
         }).map((res:Response) => res.json());
     //return returndata.text();

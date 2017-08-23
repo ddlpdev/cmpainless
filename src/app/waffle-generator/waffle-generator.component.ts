@@ -31,8 +31,9 @@ export class WaffleGeneratorComponent implements OnInit {
   }
 
   getTheWaffle(){
-    this.waffle = this.waffleservice.getWaffle();
-    console.log(this.waffle);
+    this.waffleservice.getWaffle()
+    .subscribe(data => console.log(data));
+    //console.log(this.waffle);
   }
 
   whatelseyougotClick(){
