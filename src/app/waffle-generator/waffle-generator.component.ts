@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Http} from '@angular/http';
 import { Observable } from 'rxjs/Rx';
+import { Subject } from 'rxjs/Rx';
+
 import 'rxjs/add/operator/map'
 import { Router } from '@angular/router';
 import { WaffleService } from './../waffle.service';
@@ -13,7 +15,7 @@ import { WaffleService } from './../waffle.service';
 })
 export class WaffleGeneratorComponent implements OnInit {
 
-  private waffle;
+  public waffle: Subject<any> = new Subject<any>();
 
   constructor(private router: Router, 
               private http:Http,
@@ -32,7 +34,11 @@ export class WaffleGeneratorComponent implements OnInit {
 
   getTheWaffle(){
     this.waffleservice.getWaffle()
-    .subscribe(data => console.log(data));
+    .subscribe(data => 
+    this.waffle.next(data)
+
+  
+  );
     //console.log(this.waffle);
   }
 
