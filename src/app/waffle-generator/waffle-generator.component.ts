@@ -16,7 +16,7 @@ import { WaffleService } from './../waffle.service';
 export class WaffleGeneratorComponent implements OnInit {
 
   public waffle: Subject<any> = new Subject<any>();
-
+  private thewaff;
   constructor(private router: Router, 
               private http:Http,
               private waffleservice: WaffleService) { }
@@ -35,7 +35,7 @@ export class WaffleGeneratorComponent implements OnInit {
   getTheWaffle(){
     this.waffleservice.getWaffle()
     .subscribe(data => 
-    this.waffle.next(data)
+      this.thewaff = data.thewaffle
 
   
   );
