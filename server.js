@@ -2,9 +2,9 @@
 const express = require('express');
 const path = require('path');
 
-var phenomena = [ 'wearable creativity', 'a room of puppies'];
-var issues = ['big data', 'the climate conundrum'];
-var verbbits = ['killing'];
+var phenomenaSingular = [ 'wearable creativity', 'a room of puppies', 'the lack of biscuits in meetings', 'live Grinder-streaming'];
+var issues = ['big data', 'the climate conundrum', 'the future of creativity', 'the old-agency model', 'the talent crisis', 'the SnapChat generation','client/agency relationships'];
+var verbbits = ['killing', 'stifling', 'the answer to', 'the key to', 'the future of'];
 
 
 var waffledata = [
@@ -76,7 +76,7 @@ app.use(express.static(__dirname + '/dist'));
 /* GET api listing. */
 app.get('/api/waffle',  (req, res) =>  {
 
-    thePhenomenon = phenomena[Math.floor(Math.random() * phenomena.length)];
+    thePhenomenon = phenomenaSingular[Math.floor(Math.random() * phenomenaSingular.length)];
     theIssue = issues[Math.floor(Math.random() * issues.length)];
     theVerbbit = verbbits[Math.floor(Math.random() * verbbits.length)];
     
