@@ -16,7 +16,7 @@ import { WaffleService } from './../waffle.service';
 export class WaffleGeneratorComponent implements OnInit {
 
   public waffle: Subject<any> = new Subject<any>();
-  private thewaff;
+  public thewaff;
   constructor(private router: Router, 
               private http:Http,
               private waffleservice: WaffleService) { }
