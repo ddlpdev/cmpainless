@@ -2,12 +2,35 @@
 const express = require('express');
 const path = require('path');
 
+var phenomena = [ 'wearable creativity', 'a room of puppies'];
+var issues = ['big data', 'the climate conundrum'];
+var verbbits = ['killing'];
+
+
 var waffledata = [
     {
         id: 1,
         title: "the titile",
         subtext: "this is the subtext",
         landingpage: "this is the landing stuff"
+    },
+    {
+        id: 2,
+        title: "the titile2",
+        subtext: "this is the subtext2",
+        landingpage: "this is the landing stuff2"
+    },
+    {
+        id: 2,
+        title: "the titile2",
+        subtext: "this is the subtext2",
+        landingpage: "this is the landing stuff2"
+    },
+    {
+        id: 2,
+        title: "the titile2",
+        subtext: "this is the subtext2",
+        landingpage: "this is the landing stuff2"
     },
     {
         id: 2,
@@ -53,9 +76,18 @@ app.use(express.static(__dirname + '/dist'));
 /* GET api listing. */
 app.get('/api/waffle',  (req, res) =>  {
 
+    thePhenomenon = phenomena[Math.floor(Math.random() * phenomena.length)];
+    theIssue = issues[Math.floor(Math.random() * issues.length)];
+    theVerbbit = verbbits[Math.floor(Math.random() * issues.length)];
+    
+    
+    thewaffle = {
+        thewaffle: 'Is '+thePhenomenon+' '+theVerbbit+' '+theIssue
+    }
+
     
 
-    res.status(200).json(waffledata);
+    res.status(200).json(thewaffle);
 
 });
 
