@@ -82,7 +82,7 @@ app.get('/api/waffle',  (req, res) =>  {
     
     
     thewaffle = {
-        thewaffle: 'Is '+thePhenomenon+' '+theVerbbit+' '+theIssue
+        thewaffle: 'Is '+thePhenomenon+' '+theVerbbit+' '+theIssue+'?'
     }
 
     
