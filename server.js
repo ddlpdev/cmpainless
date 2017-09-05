@@ -78,7 +78,7 @@ app.get('/api/waffle',  (req, res) =>  {
 
     thePhenomenon = phenomena[Math.floor(Math.random() * phenomena.length)];
     theIssue = issues[Math.floor(Math.random() * issues.length)];
-    theVerbbit = verbbits[Math.floor(Math.random() * issues.length)];
+    theVerbbit = verbbits[Math.floor(Math.random() * verbbits.length)];
     
     
     thewaffle = {
