@@ -18,7 +18,10 @@ export class WaffleService {
     this.headers.append("Content-Type", 'application/json');
     return  this.http.get("/api/waffle", {
           headers: this.headers
-        }).map((res:Response) => res.json());
+        }).map( (res:Response) => {
+          setTimeout(()=>{ return res.json() }, 4000)
+          
+        });
     //return returndata.text();
   }
 
