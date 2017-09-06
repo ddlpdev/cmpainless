@@ -11,6 +11,8 @@ export class WaffleService {
 
   constructor(private http: Http) { }
 
+  
+
   getWaffle():Observable<any>{
 
     var returndata;
@@ -18,10 +20,11 @@ export class WaffleService {
     this.headers.append("Content-Type", 'application/json');
     return  this.http.get("/api/waffle", {
           headers: this.headers
-        }).map( (res:Response) => {
-          setTimeout(()=>{ return res.json() }, 4000)
+        }).map( (res:Response) => 
+           {
+             return res.json();}
           
-        });
+        ).delay(3000);
     //return returndata.text();
   }
 

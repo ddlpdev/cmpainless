@@ -7,43 +7,6 @@ var issues = ['big data', 'the climate conundrum', 'the future of creativity', '
 var verbbits = ['killing', 'stifling', 'the answer to', 'the key to', 'the future of'];
 
 
-var waffledata = [
-    {
-        id: 1,
-        title: "the titile",
-        subtext: "this is the subtext",
-        landingpage: "this is the landing stuff"
-    },
-    {
-        id: 2,
-        title: "the titile2",
-        subtext: "this is the subtext2",
-        landingpage: "this is the landing stuff2"
-    },
-    {
-        id: 2,
-        title: "the titile2",
-        subtext: "this is the subtext2",
-        landingpage: "this is the landing stuff2"
-    },
-    {
-        id: 2,
-        title: "the titile2",
-        subtext: "this is the subtext2",
-        landingpage: "this is the landing stuff2"
-    },
-    {
-        id: 2,
-        title: "the titile2",
-        subtext: "this is the subtext2",
-        landingpage: "this is the landing stuff2"
-    }
-]
-
-
-
-
-
 const app = express();
 
 // If an incoming request uses
@@ -95,6 +58,8 @@ app.get('/api/waffle',  (req, res) =>  {
 // Start the app by listening on the default
 // Heroku port
 app.listen(process.env.PORT || 8080);
+//app.listen(3000);
+
 
 // For all GET requests, send back index.html
 // so that PathLocationStrategy can be used
