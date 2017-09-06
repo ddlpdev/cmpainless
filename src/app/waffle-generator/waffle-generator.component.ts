@@ -17,7 +17,7 @@ export class WaffleGeneratorComponent implements OnInit {
 
   public waffle: Subject<any> = new Subject<any>();
   public thewaff;
-  private loaderOn:boolean;
+  public loaderOn:boolean;
   constructor(private router: Router, 
               private http:Http,
               private waffleservice: WaffleService) { }
@@ -35,7 +35,6 @@ export class WaffleGeneratorComponent implements OnInit {
       }
   
   );
-    //console.log(this.waffle);
   }
 
   whatelseyougotClick(){
