@@ -6,6 +6,7 @@ import { Subject } from 'rxjs/Rx';
 import 'rxjs/add/operator/map'
 import { Router } from '@angular/router';
 import { WaffleService } from './../waffle.service';
+import {Waffle} from './../waffle';
 
 
 @Component({
