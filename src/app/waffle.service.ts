@@ -18,11 +18,12 @@ export class WaffleService {
     var returndata;
     this.headers = new Headers();
     this.headers.append("Content-Type", 'application/json');
-    return  this.http.get("/api/waffle", {
+    return  this.http.get("https://campaignless.herokuapp.com/api/waffle", {
           headers: this.headers
         }).map( (res:Response) => 
            {
              var thejson = res.json();
+             console.log(thejson);
              var headline:string = thejson.theWaffle;
              var subtext:string ="";
              var theWaffle = new Waffle(headline, subtext);
