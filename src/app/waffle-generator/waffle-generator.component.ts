@@ -30,7 +30,7 @@ export class WaffleGeneratorComponent implements OnInit {
   getTheWaffle(){
     this.waffleservice.getWaffle()
     .subscribe(data => 
-      {this.thewaff = data.thewaffle;
+      {this.thewaff = data.headline;
       this.loaderOn = true;
       }
   

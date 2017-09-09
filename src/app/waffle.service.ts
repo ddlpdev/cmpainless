@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {Http, Headers, Response} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-
+import {Waffle} from './waffle';
 
 @Injectable()
 export class WaffleService {
@@ -11,9 +11,9 @@ export class WaffleService {
 
   constructor(private http: Http) { }
 
-  
 
-  getWaffle():Observable<any>{
+
+  getWaffle():Observable<Waffle>{
 
     var returndata;
     this.headers = new Headers();
@@ -22,7 +22,12 @@ export class WaffleService {
           headers: this.headers
         }).map( (res:Response) => 
            {
-             return res.json();}
+             var thejson = res.json();
+             var headline:string = thejson.theWaffle;
+             var subtext:string ="";
+             var theWaffle = new Waffle(headline, subtext);
+
+             return theWaffle;}
           
         ).delay(3000);
     //return returndata.text();
