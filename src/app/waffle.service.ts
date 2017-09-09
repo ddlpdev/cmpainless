@@ -24,7 +24,7 @@ export class WaffleService {
            {
              var thejson = res.json();
              console.log(thejson);
-             var headline:string = thejson.theWaffle;
+             var headline:string = thejson.thewaffle;
              var subtext:string ="";
              var theWaffle = new Waffle(headline, subtext);
 
